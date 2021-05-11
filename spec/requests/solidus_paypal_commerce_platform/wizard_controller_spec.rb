@@ -31,7 +31,7 @@ RSpec.describe SolidusPaypalCommercePlatform::WizardController, type: :request d
       end.twice
 
       expect {
-        post solidus_paypal_commerce_platform.wizard_index_path, params: params
+        post solidus_paypal_commerce_platform.wizard_index_path, params: params, headers: basic_auth_header
       }.to change(SolidusPaypalCommercePlatform::PaymentMethod, :count).from(0).to(1)
 
       payment_method = SolidusPaypalCommercePlatform::PaymentMethod.last

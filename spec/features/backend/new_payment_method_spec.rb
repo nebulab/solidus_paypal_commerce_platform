@@ -4,6 +4,7 @@ RSpec.describe "creating a new payment" do
   stub_authorization!
 
   it "displays PayPal Commerce Platform as an option" do
+    http_login_if_needed
     visit "/admin/payment_methods/new"
     expect(page).to have_select('payment_method_type', options: [
       "PayPal Commerce Platform",
@@ -24,6 +25,7 @@ RSpec.describe "creating a new payment" do
   end
 
   it "displays the onboarding button", :js do
+    http_login_if_needed_js
     visit "/admin/payment_methods"
 
     # main_window = current_window

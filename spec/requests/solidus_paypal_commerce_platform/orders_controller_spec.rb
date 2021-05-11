@@ -13,7 +13,7 @@ RSpec.describe SolidusPaypalCommercePlatform::OrdersController, type: :request d
           format: :json
         }
 
-        get solidus_paypal_commerce_platform.verify_total_path, params: params
+        get solidus_paypal_commerce_platform.verify_total_path, params: params, headers: basic_auth_header
 
         expect(response).to have_http_status(:ok)
       end
@@ -27,7 +27,7 @@ RSpec.describe SolidusPaypalCommercePlatform::OrdersController, type: :request d
           format: :json
         }
 
-        get solidus_paypal_commerce_platform.verify_total_path, params: params
+        get solidus_paypal_commerce_platform.verify_total_path, params: params, headers: basic_auth_header
 
         expect(response).to have_http_status(:bad_request)
       end

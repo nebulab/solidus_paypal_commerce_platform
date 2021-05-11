@@ -20,7 +20,7 @@ RSpec.describe SolidusPaypalCommercePlatform::ShippingRatesController, type: :re
       get solidus_paypal_commerce_platform.shipping_rates_path, params: {
         order_id: order.number,
         address: paypal_address
-      }
+      }, headers: basic_auth_header
     end
 
     it "returns a paypal_order without the simulated address" do

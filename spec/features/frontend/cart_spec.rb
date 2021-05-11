@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 RSpec.describe "Cart page" do
+  before do
+    http_login_if_needed
+  end
+
   describe "paypal payment method" do
     let(:order) { Spree::TestingSupport::OrderWalkthrough.up_to(:address) }
     let(:paypal_payment_method) { create(:paypal_payment_method) }
